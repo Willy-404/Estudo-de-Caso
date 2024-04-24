@@ -9,6 +9,9 @@ public class MainEstudodeGirandir {
 		Scanner leitura = new Scanner(System.in);
 		int i = 0;
 		int op;
+		String codigodoequipamento = null;
+		Integer codigodoequipamento1 = 0;
+		
 		ArrayList<Equipamento> estoque = new ArrayList<>();
 		do {
 
@@ -38,8 +41,9 @@ public class MainEstudodeGirandir {
 				equipamento1.setNumerodeserie(numseriedoequipamento1);
 				
 				System.out.println("Digite o codigo do produto: ");
-				String codigodoequipamento = leitura.nextLine();
-				int codigodoequipamento1 = Integer.valueOf(codigodoequipamento);
+				 codigodoequipamento = leitura.nextLine();
+				
+				 codigodoequipamento1 = Integer.valueOf(codigodoequipamento);
 				equipamento1.setCodigo(codigodoequipamento1);
 
 				System.out.println("Digite a marca: ");
@@ -72,14 +76,13 @@ public class MainEstudodeGirandir {
 
 			case 3:
 				//estoque.remove(equipamento);
-				//System.out.println("***Digite o codigo do equipamento para Exclusao***");
-				//String codigoparadeletar = leitura.nextLine();
-				//for (Equipamento equipamento : estoque) {
-					//if codigoparadeletar == codigodoequipamento{
-						//equipamento1 = null;
-						
-					//}
-				//}
+				System.out.println("***Digite o codigo do equipamento para Exclusao***");
+				Integer codigoparadeletar = Integer.valueOf(leitura.nextLine());
+				for (Equipamento equipamento : estoque) {
+					if (codigoparadeletar==equipamento.getCodigo()){
+						estoque.remove(equipamento);
+					}
+				}
 				System.out.println("");
 				break;
 			}
