@@ -1,7 +1,6 @@
 package osmeninojatacopacote;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class MainEstudodeGirandir {
@@ -24,15 +23,16 @@ public class MainEstudodeGirandir {
 			switch(op) {
 			
 			case 1:
-				System.out.println("Digite um código para o Equipamento");
+				
+				
 			case 2:
 				for (Equipamento equipamento : estoque) {
-					System.out.println(estoque);
+					System.out.println();
 				}
-				System.out.println("Digite o Código do Equipamento");
+				System.out.println("Digite o Codigo do Equipamento");
 			case 3:
-				System.out.println("***Lista de Equipamentos***");
-			case 4:
+				//estoque.remove(equipamento);
+				System.out.println("***Digite o codigo do equipamento para Exclusao***");
 			}
 			
 		}while(op!=0);
