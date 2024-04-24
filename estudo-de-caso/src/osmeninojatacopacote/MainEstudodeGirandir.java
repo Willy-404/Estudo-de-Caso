@@ -35,7 +35,7 @@ public class MainEstudodeGirandir {
 				System.out.println("Digite o numero de serie do produto: ");
 				String numseriedoequipamento = leitura.nextLine();
 				int numseriedoequipamento1 = Integer.valueOf(numseriedoequipamento);
-				equipamento1.setCodigo(numseriedoequipamento1);
+				equipamento1.setNumerodeserie(numseriedoequipamento1);
 				
 				System.out.println("Digite o codigo do produto: ");
 				String codigodoequipamento = leitura.nextLine();
@@ -54,9 +54,6 @@ public class MainEstudodeGirandir {
 				System.out.println("Digite a data de fabricacao do produto: ");
 				String datafabdoequipamento = leitura.nextLine();
 				equipamento1.setDatafab(datafabdoequipamento);
-				
-				
-
 				estoque.add(equipamento1);
 				break;
 
@@ -64,15 +61,28 @@ public class MainEstudodeGirandir {
 				System.out.println("***lista de equipamentos***");
 				for (Equipamento equipamento : estoque) {
 					System.out.println(equipamento.getNome());
+					System.out.println(equipamento.getNumerodeserie());
+					System.out.println(equipamento.getCodigo());
+					System.out.println(equipamento.getMarca());
+					System.out.println(equipamento.getPreco());
+					System.out.println(equipamento.getDatafab());
+					System.out.println("");
 				}
 				break;
 
 			case 3:
-				// estoque.remove(equipamento);
-				System.out.println("***Digite o codigo do equipamento para Exclusao***");
+				//estoque.remove(equipamento);
+				//System.out.println("***Digite o codigo do equipamento para Exclusao***");
+				//String codigoparadeletar = leitura.nextLine();
+				//for (Equipamento equipamento : estoque) {
+					//if codigoparadeletar == codigodoequipamento{
+						//equipamento1 = null;
+						
+					//}
+				//}
+				System.out.println("");
 				break;
 			}
-
 		} while (op != 4);
 		System.out.println("Fim do Programa");
 	}
