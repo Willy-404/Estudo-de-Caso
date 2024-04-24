@@ -7,6 +7,4 @@ public class Equipamento {
 	private Long preco;
 	private String datafab;
 	private Integer numerodeserie;
-	
-	
 }
