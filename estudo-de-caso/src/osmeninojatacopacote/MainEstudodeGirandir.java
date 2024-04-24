@@ -1,5 +1,6 @@
 package osmeninojatacopacote;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainEstudodeGirandir {
@@ -9,6 +10,8 @@ public class MainEstudodeGirandir {
 		int i=0;
 		int op;
 		do {
+			ArrayList<Equipamento> estoque = new ArrayList<>();
+			
 			System.out.println("Escolha uma Opcao");
 			System.out.println("Digite 1 para Cadastrar Equipamento no Sistema");
 			System.out.println("Digite 2 para Visualizar os Equipamentos ja cadastrados");
