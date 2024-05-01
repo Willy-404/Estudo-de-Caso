@@ -9,7 +9,6 @@ public class MainEstudodeGirandir {
 		Scanner leitura = new Scanner(System.in);
 		int i = 0;
 		int op;
-		
 		ArrayList<Equipamento> estoque = new ArrayList<>();
 		do {
 
@@ -29,21 +28,29 @@ public class MainEstudodeGirandir {
 			switch (op) {
 
 			case 1:
+				//provavelmente teremos de mudar a ordem para ajeitar a verificação, ex: codigo 1°
 				Equipamento equipamento1 = new Equipamento();
 				System.out.println("Digite o nome do produto: ");
 				String nomedoequipamento = leitura.nextLine();
 				equipamento1.setNome(nomedoequipamento);
+				//verificação se tiver a mesma marca?
 				
 				System.out.println("Digite o numero de serie do produto: ");
 				String numseriedoequipamento = leitura.nextLine();
 				int numseriedoequipamento1 = Integer.valueOf(numseriedoequipamento);
 				equipamento1.setNumerodeserie(numseriedoequipamento1);
+				//verificação se tiver o mesmo nome e marca?
 				
 				System.out.println("Digite o codigo do produto: ");
 				String codigodoequipamento = leitura.nextLine();
-				
 				int codigodoequipamento1 = Integer.valueOf(codigodoequipamento);
 				equipamento1.setCodigo(codigodoequipamento1);
+				for (Equipamento equipamento : estoque) {
+					if (codigodoequipamento1==(equipamento.getCodigo())) {
+						System.out.println("Codigo ja utilizado, digite outro");
+						//falta terminar a verificação
+					}
+				}
 
 				System.out.println("Digite a marca: ");
 				String marcadoequipamento = leitura.nextLine();
@@ -74,12 +81,17 @@ public class MainEstudodeGirandir {
 				break;
 
 			case 3:
-				//estoque.remove(equipamento);
 				System.out.println("***Digite o codigo do equipamento para Exclusao***");
 				Integer codigoparadeletar = Integer.valueOf(leitura.nextLine());
 				for (Equipamento equipamento : estoque) {
-					if (codigoparadeletar==equipamento.getCodigo()){
+					if (codigoparadeletar.equals(equipamento.getCodigo())){
 						estoque.remove(equipamento);
+						System.out.println("Equipamento encontrado e deletado");
+						break;
+					}
+					else {
+						System.out.println("Equipamento nao encontrado");
+						break;
 					}
 				}
 				System.out.println("");
