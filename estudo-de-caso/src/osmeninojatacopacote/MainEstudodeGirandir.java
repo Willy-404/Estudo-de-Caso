@@ -60,14 +60,17 @@ public class MainEstudodeGirandir {
 				String precodoequipamento = leitura.nextLine();
 				long precodoequipamento1 = Long.valueOf(precodoequipamento);
 				equipamento1.setPreco(precodoequipamento1);
+				//verifica se o preço não é negativo
 
 				System.out.println("Digite a data de fabricacao do produto: ");
 				String datafabdoequipamento = leitura.nextLine();
 				equipamento1.setDatafab(datafabdoequipamento);
 				estoque.add(equipamento1);
+				//não acho que precisa verificar data
 				break;
 
 			case 2:
+				//provavelmente vamo mudar a ordem da apresentação
 				System.out.println("***lista de equipamentos***");
 				for (Equipamento equipamento : estoque) {
 					System.out.println(equipamento.getNome());
@@ -98,6 +101,7 @@ public class MainEstudodeGirandir {
 				break;
 				
 			case 4:
+				//aqui vai o baguio de alterar valores
 				break;
 			}
 		} while (op != 0);

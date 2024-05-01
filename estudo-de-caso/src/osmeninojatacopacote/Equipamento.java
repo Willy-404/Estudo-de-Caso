@@ -1,7 +1,5 @@
 package osmeninojatacopacote;
 
-import java.util.ArrayList;
-
 public class Equipamento {
 	private Integer codigo;
 	private String nome;
