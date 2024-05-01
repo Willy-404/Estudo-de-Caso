@@ -9,8 +9,6 @@ public class MainEstudodeGirandir {
 		Scanner leitura = new Scanner(System.in);
 		int i = 0;
 		int op;
-		String codigodoequipamento = null;
-		Integer codigodoequipamento1 = 0;
 		
 		ArrayList<Equipamento> estoque = new ArrayList<>();
 		do {
@@ -42,9 +40,9 @@ public class MainEstudodeGirandir {
 				equipamento1.setNumerodeserie(numseriedoequipamento1);
 				
 				System.out.println("Digite o codigo do produto: ");
-				 codigodoequipamento = leitura.nextLine();
+				String codigodoequipamento = leitura.nextLine();
 				
-				 codigodoequipamento1 = Integer.valueOf(codigodoequipamento);
+				int codigodoequipamento1 = Integer.valueOf(codigodoequipamento);
 				equipamento1.setCodigo(codigodoequipamento1);
 
 				System.out.println("Digite a marca: ");

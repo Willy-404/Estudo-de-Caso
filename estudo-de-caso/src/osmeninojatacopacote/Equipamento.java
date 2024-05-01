@@ -1,5 +1,7 @@
 package osmeninojatacopacote;
 
+import java.util.ArrayList;
+
 public class Equipamento {
 	private Integer codigo;
 	private String nome;
@@ -7,7 +9,7 @@ public class Equipamento {
 	private Long preco;
 	private String datafab;
 	private Integer numerodeserie;
-	
+	}
 	public Integer getCodigo() {
 		return codigo;
 	}
