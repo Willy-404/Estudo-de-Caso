@@ -22,7 +22,8 @@ public class MainEstudodeGirandir {
 			System.out.println("Digite 1 para Cadastrar Equipamento no Sistema");
 			System.out.println("Digite 2 para Visualizar os Equipamentos ja cadastrados");
 			System.out.println("Digite 3 para Deletar um Equipamento do Sistema");
-			System.out.println("Digite 4 para Encerrar o Programa");
+			System.out.println("Digite 4 para Alterar valores");
+			System.out.println("Digite 0 para Finalizar o programa");
 			System.out.println("");
 			String opcao = leitura.nextLine();
 			op = Integer.valueOf(opcao);
@@ -85,8 +86,11 @@ public class MainEstudodeGirandir {
 				}
 				System.out.println("");
 				break;
+				
+			case 4:
+				break;
 			}
-		} while (op != 4);
+		} while (op != 0);
 		System.out.println("Fim do Programa");
 	}
 }
