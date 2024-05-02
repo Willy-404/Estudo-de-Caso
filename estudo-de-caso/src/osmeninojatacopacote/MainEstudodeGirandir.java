@@ -7,7 +7,6 @@ public class MainEstudodeGirandir {
 
 	public static void main(String[] args) {
 		Scanner leitura = new Scanner(System.in);
-		int i = 0;
 		int op;
 		ArrayList<Equipamento> estoque = new ArrayList<>();
 		do {
@@ -70,35 +69,38 @@ public class MainEstudodeGirandir {
 				break;
 
 			case 2:
-				//provavelmente vamo mudar a ordem da apresentação
+				//provavelmente vamo mudar a ordem da apresentação, codigo é +importante qNumerodSerie
 				System.out.println("***lista de equipamentos***");
 				for (Equipamento equipamento : estoque) {
-					System.out.println(equipamento.getNome());
-					System.out.println(equipamento.getNumerodeserie());
-					System.out.println(equipamento.getCodigo());
-					System.out.println(equipamento.getMarca());
-					System.out.println(equipamento.getPreco());
-					System.out.println(equipamento.getDatafab());
+					System.out.println("Nome: "+equipamento.getNome());
+					System.out.println("Numero de Serie: "+equipamento.getNumerodeserie());
+					System.out.println("Codigo: "+equipamento.getCodigo());
+					System.out.println("Marca: "+equipamento.getMarca());
+					System.out.println("Preço: R$"+equipamento.getPreco());
+					System.out.println("Data de Fabricacao"+equipamento.getDatafab());
 					System.out.println("");
 				}
 				break;
 
 			case 3:
-				System.out.println("***Digite o codigo do equipamento para Exclusao***");
-				Integer codigoparadeletar = Integer.valueOf(leitura.nextLine());
-				for (Equipamento equipamento : estoque) {
-					if (codigoparadeletar.equals(equipamento.getCodigo())){
-						estoque.remove(equipamento);
-						System.out.println("Equipamento encontrado e deletado");
-						break;
-					}
-					else {
-						System.out.println("Equipamento nao encontrado");
-						break;
-					}
-				}
-				System.out.println("");
-				break;
+			    System.out.println("***Digite o código do equipamento para Exclusão***");
+			    Integer codigoParaDeletar = Integer.valueOf(leitura.nextLine());
+			    boolean EquipamentoEncontrado = false;
+			    for (Equipamento equipamento : estoque) {
+			        if (codigoParaDeletar.equals(equipamento.getCodigo())) {
+			            estoque.remove(equipamento);
+			            EquipamentoEncontrado = true;
+			            break;
+			        }
+			    }
+			    if (EquipamentoEncontrado==true) {
+			        System.out.println("Equipamento removido com sucesso!");
+			    } else {
+			        System.out.println("Equipamento não encontrado.");
+			    }
+			    System.out.println("");
+			    break;
+
 				
 			case 4:
 				//aqui vai o baguio de alterar valores
