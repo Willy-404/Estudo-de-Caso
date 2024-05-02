@@ -8,6 +8,7 @@ public class MainEstudodeGirandir {
 	public static void main(String[] args) {
 		Scanner leitura = new Scanner(System.in);
 		int op;
+		boolean EquipamentoEncontrado;
 		ArrayList<Equipamento> estoque = new ArrayList<>();
 		do {
 
@@ -69,7 +70,7 @@ public class MainEstudodeGirandir {
 				break;
 
 			case 2:
-				//provavelmente vamo mudar a ordem da apresentação, codigo é +importante qNumerodSerie
+				//provavelmente vamo mudar a ordem da apresentação,EX: codigo é +importante qNumerodSerie
 				System.out.println("***lista de equipamentos***");
 				for (Equipamento equipamento : estoque) {
 					System.out.println("Nome: "+equipamento.getNome());
@@ -77,17 +78,17 @@ public class MainEstudodeGirandir {
 					System.out.println("Codigo: "+equipamento.getCodigo());
 					System.out.println("Marca: "+equipamento.getMarca());
 					System.out.println("Preço: R$"+equipamento.getPreco());
-					System.out.println("Data de Fabricacao"+equipamento.getDatafab());
+					System.out.println("Data de Fabricacao: "+equipamento.getDatafab());
 					System.out.println("");
 				}
 				break;
 
 			case 3:
 			    System.out.println("***Digite o código do equipamento para Exclusão***");
-			    Integer codigoParaDeletar = Integer.valueOf(leitura.nextLine());
-			    boolean EquipamentoEncontrado = false;
+			    Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
+			    EquipamentoEncontrado = false;
 			    for (Equipamento equipamento : estoque) {
-			        if (codigoParaDeletar.equals(equipamento.getCodigo())) {
+			        if (CodigoParaDeletar.equals(equipamento.getCodigo())) {
 			            estoque.remove(equipamento);
 			            EquipamentoEncontrado = true;
 			            break;
@@ -103,10 +104,67 @@ public class MainEstudodeGirandir {
 
 				
 			case 4:
-				//aqui vai o baguio de alterar valores
+				EquipamentoEncontrado = false;
+				System.out.println("Digite o codigo do equipamento que deseja alterar");
+				Integer CodigoParaAlterar = Integer.valueOf(leitura.nextLine());
+				for (Equipamento equipamento : estoque) {
+					if (CodigoParaAlterar.equals(equipamento.getCodigo())) {
+						EquipamentoEncontrado = true;
+						System.out.println("Digite o que deseja alterar:");
+						System.out.println("1-Nome");
+						System.out.println("2-Numero de Serie");
+						System.out.println("3-Marca");
+						System.out.println("4-Preco");
+						System.out.println("5-Data de Fabricacao");
+						System.out.println("0-Cancelar");
+						int po = Integer.valueOf(leitura.nextLine());
+						switch(po) {
+						case 1:
+							System.out.println("Renomeie o Equipamento:");
+							String NomeParaSubstituir=leitura.nextLine();
+							equipamento.setNome(NomeParaSubstituir);
+							System.out.println("Nome alterado com sucesso");
+							po=0;
+							break;
+						case 2:
+							System.out.println("Digite um novo Numero de Serie");
+							int NumSerieSubstituir=Integer.valueOf(leitura.nextLine());
+							equipamento.setNumerodeserie(NumSerieSubstituir);
+							System.out.println("Numero de Serie alterado com sucesso");
+							po=0;
+							break;
+						case 3:
+							System.out.println("Digite a nova marca do equipamento");
+							String MarcaParaSubstituir=leitura.nextLine();
+							equipamento.setMarca(MarcaParaSubstituir);
+							System.out.println("Marca alterada com sucesso");
+							po=0;
+							break;
+						case 4:
+							System.out.println("Digite um novo Preco para o Equipamento");
+							long PrecoSubstituir=Integer.valueOf(leitura.nextLine());
+							equipamento.setPreco(PrecoSubstituir);
+							System.out.println("Preco alterado com sucesso");
+							po=0;
+							break;
+						case 5:
+							System.out.println("Digite a data de fabricacao do Equipamento:");
+							String DataSubstituir=leitura.nextLine();
+							equipamento.setDatafab(DataSubstituir);
+							System.out.println("Data alterada com sucesso");
+							po=0;
+							break;
+						}while (po!=0);
+						System.out.println("Fim das Alteracoes");
+						break;
+					}
+				}
+			    if (EquipamentoEncontrado==false) {
+			        System.out.println("Equipamento não encontrado, verifique o codigo");
+			    }
 				break;
 			}
-		} while (op != 0);
+		} while (op!=0);
 		System.out.println("Fim do Programa");
 	}
 }
