@@ -60,16 +60,40 @@ public class MainEstudodeGirandir {
 				String marcadoequipamento = leitura.nextLine();
 				equipamento1.setMarca(marcadoequipamento);
 				
-				System.out.println("Digite a data de fabricacao do produto (dd/mm/aa): ");
-				String datafabdoequipamento = leitura.nextLine();//vamo muda data
-				equipamento1.setDatafab(datafabdoequipamento);//.setDatafab(dd+"/"+mm+"/"+aa)
+				System.out.println("Data de fabricacao do produto (dd/mm/aa): ");
+				System.out.println("Digite o Dia");
+				String dd = leitura.nextLine();
+				while ((Integer.valueOf(dd)>31)||(Integer.valueOf(dd))<1) {
+					System.out.println("Digite um dia Valido!");
+					String ddverif = leitura.nextLine();
+					dd = ddverif;
+				}
+				System.out.println("Digite o Mes");
+				String mm = leitura.nextLine();
+				while ((Integer.valueOf(mm)>12)||(Integer.valueOf(mm))<1) {
+					System.out.println("Digite um Mes Valido!");
+					String mmverif = leitura.nextLine();
+					mm = mmverif;
+				}
+				System.out.println("Digite o Ano");
+				String aa = leitura.nextLine();
+				while ((Integer.valueOf(aa)>2024)||(Integer.valueOf(aa))<1900) {
+					System.out.println("Digite um Ano Valido!");
+					String aaverif = leitura.nextLine();
+					aa = aaverif;
+				}
+				equipamento1.setDatafab(dd+"/"+mm+"/"+aa);
 				estoque.add(equipamento1);
 				
 				System.out.println("Digite o preco do produto: ");
 				String precodoequipamento = leitura.nextLine();
 				long precodoequipamento1 = Long.valueOf(precodoequipamento);
 				equipamento1.setPreco(precodoequipamento1);
-				//se for louco e tiver tempo, da de meter umas 100 linha de verificação aqui tmb
+				while (precodoequipamento1<0) {
+					System.out.println("Numero de serie invalido, digite de novo: ");
+					String precoconferir=leitura.nextLine();
+					precodoequipamento1=Integer.valueOf(precoconferir);
+				}
 				break;
 
 			case 2:
