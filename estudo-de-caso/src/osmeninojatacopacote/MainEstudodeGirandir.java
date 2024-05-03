@@ -90,7 +90,7 @@ public class MainEstudodeGirandir {
 				long precodoequipamento1 = Long.valueOf(precodoequipamento);
 				equipamento1.setPreco(precodoequipamento1);
 				while (precodoequipamento1<0) {
-					System.out.println("Numero de serie invalido, digite de novo: ");
+					System.out.println("Preco invalido, digite um valor real: ");
 					String precoconferir=leitura.nextLine();
 					precodoequipamento1=Integer.valueOf(precoconferir);
 				}
@@ -130,6 +130,7 @@ public class MainEstudodeGirandir {
 			    break;
 				
 			case 4:
+				//Predo tabralha
 				EquipamentoEncontrado = false;
 				System.out.println("Digite o codigo do equipamento que deseja alterar");
 				Integer CodigoParaAlterar = Integer.valueOf(leitura.nextLine());
@@ -174,6 +175,7 @@ public class MainEstudodeGirandir {
 							po=0;
 							break;
 						case 5:
+							// Predo verif Data copcola
 							System.out.println("Digite a data de fabricacao do Equipamento: ");
 							String DataSubstituir=leitura.nextLine();
 							equipamento.setDatafab(DataSubstituir);
