@@ -60,17 +60,16 @@ public class MainEstudodeGirandir {
 				String marcadoequipamento = leitura.nextLine();
 				equipamento1.setMarca(marcadoequipamento);
 				
-				System.out.println("Digite a data de fabricacao do produto: ");
-				String datafabdoequipamento = leitura.nextLine();
-				equipamento1.setDatafab(datafabdoequipamento);
+				System.out.println("Digite a data de fabricacao do produto (dd/mm/aa): ");
+				String datafabdoequipamento = leitura.nextLine();//vamo muda data
+				equipamento1.setDatafab(datafabdoequipamento);//.setDatafab(dd+"/"+mm+"/"+aa)
 				estoque.add(equipamento1);
 				
 				System.out.println("Digite o preco do produto: ");
 				String precodoequipamento = leitura.nextLine();
 				long precodoequipamento1 = Long.valueOf(precodoequipamento);
 				equipamento1.setPreco(precodoequipamento1);
-				
-
+				//se for louco e tiver tempo, da de meter umas 100 linha de verificação aqui tmb
 				break;
 
 			case 2:
@@ -105,7 +104,6 @@ public class MainEstudodeGirandir {
 			    }
 			    System.out.println("");
 			    break;
-
 				
 			case 4:
 				EquipamentoEncontrado = false;
