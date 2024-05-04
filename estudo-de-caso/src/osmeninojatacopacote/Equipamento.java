@@ -4,7 +4,7 @@ public class Equipamento {
 	private Integer codigo;
 	private String nome;
 	private String marca;
-	private Long preco;
+	private Float preco;
 	private String datafab;
 	private Integer numerodeserie;
 	
@@ -26,10 +26,10 @@ public class Equipamento {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	public Long getPreco() {
+	public Float getPreco() {
 		return preco;
 	}
-	public void setPreco(Long preco) {
+	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
 	public String getDatafab() {

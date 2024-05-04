@@ -14,7 +14,6 @@ public class MainEstudodeGirandir {
 
 			System.out.println("");
 			System.out.println("*****SISTEMA DE CADASTRO DE EQUIPAMENTOS ELETRÔNICOS*****");
-
 			System.out.println("Escolha uma Opcao");
 			System.out.println("Digite 1 para Cadastrar Equipamento no Sistema");
 			System.out.println("Digite 2 para Visualizar os Equipamentos ja cadastrados");
@@ -87,18 +86,15 @@ public class MainEstudodeGirandir {
 
 				System.out.println("Digite o preco do produto: ");
 				String precodoequipamento = leitura.nextLine();
-				long precodoequipamento1 = Long.valueOf(precodoequipamento);
+				float precodoequipamento1 = Float.valueOf(precodoequipamento);
 				equipamento1.setPreco(precodoequipamento1);
-				while (precodoequipamento1 < 0) {
+				while (precodoequipamento1 < 1) {
 					System.out.println("Preco invalido, digite um valor real: ");
 					String precoconferir = leitura.nextLine();
-					precodoequipamento1 = Integer.valueOf(precoconferir);
+					precodoequipamento1 = Float.valueOf(precoconferir);
 				}
 				break;
 
-				
-				
-				
 			case 2:
 				System.out.println("***lista de equipamentos***");
 				for (Equipamento equipamento : estoque) {
@@ -112,9 +108,6 @@ public class MainEstudodeGirandir {
 				}
 				break;
 
-				
-				
-				
 			case 3:
 				System.out.println("***Digite o código do equipamento para Exclusão***");
 				Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
@@ -134,9 +127,6 @@ public class MainEstudodeGirandir {
 				System.out.println("");
 				break;
 
-				
-				
-				
 			case 4:
 				EquipamentoEncontrado = false;
 				System.out.println("Digite o codigo do equipamento que deseja alterar");
@@ -182,8 +172,13 @@ public class MainEstudodeGirandir {
 							break;
 						case 4:
 							System.out.println("Digite um novo Preco para o Equipamento: ");
-							long PrecoSubstituir = Integer.valueOf(leitura.nextLine());
+							float PrecoSubstituir = Float.valueOf(leitura.nextLine());
 							equipamento.setPreco(PrecoSubstituir);
+							while (PrecoSubstituir < 1) {
+								System.out.println("Preco invalido, digite um valor real: ");
+								String precoconferir = leitura.nextLine();
+								PrecoSubstituir = Float.valueOf(precoconferir);
+							}
 							System.out.println("Preco alterado com sucesso!");
 							po = 0;
 							break;
@@ -218,8 +213,7 @@ public class MainEstudodeGirandir {
 							po = 0;
 							break;
 						}
-						while (po != 0)
-							;
+						while (po != 0);
 						System.out.println("Fim das Alteracoes");
 						break;
 					}
