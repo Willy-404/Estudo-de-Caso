@@ -1,6 +1,8 @@
 package modelo;
 
 public class Equipamento {
+	
+	
 	private Integer codigo;
 	private String nome;
 	private String marca;
@@ -44,6 +46,4 @@ public class Equipamento {
 	public void setNumerodeserie(Integer numerodeserie) {
 		this.numerodeserie = numerodeserie;
 	}
-	
-	
 }

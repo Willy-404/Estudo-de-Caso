@@ -3,6 +3,7 @@ package visao;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import controle.EquipamentoDAO;
 import modelo.Equipamento;
 
 public class MainEstudodeGirandir {
@@ -11,7 +12,6 @@ public class MainEstudodeGirandir {
 		Scanner leitura = new Scanner(System.in);
 		int op;
 		boolean EquipamentoEncontrado;
-		ArrayList<Equipamento> estoque = new ArrayList<>();
 		do {
 
 			System.out.println("");
@@ -30,18 +30,6 @@ public class MainEstudodeGirandir {
 
 			case 1:
 				Equipamento equipamento1 = new Equipamento();
-				System.out.println("Digite o codigo do produto: ");
-				String codigodoequipamento = leitura.nextLine();
-				int codigodoequipamento1 = Integer.valueOf(codigodoequipamento);
-				equipamento1.setCodigo(codigodoequipamento1);
-				for (Equipamento equipamento : estoque) {
-					while (codigodoequipamento1 == (equipamento.getCodigo())) {
-						System.out.println("Codigo ja utilizado, digite outro: ");
-						String codigoequipamentoconf = leitura.nextLine();
-						codigodoequipamento1 = Integer.valueOf(codigoequipamentoconf);
-						equipamento1.setCodigo(codigodoequipamento1);
-					}
-				}
 
 				System.out.println("Digite o numero de serie do produto: ");
 				String numseriedoequipamento = leitura.nextLine();
@@ -84,7 +72,7 @@ public class MainEstudodeGirandir {
 					aa = aaverif;
 				}
 				equipamento1.setDatafab(dd + "/" + mm + "/" + aa);
-				estoque.add(equipamento1);
+				
 
 				System.out.println("Digite o preco do produto: ");
 				String precodoequipamento = leitura.nextLine();
@@ -95,11 +83,14 @@ public class MainEstudodeGirandir {
 					String precoconferir = leitura.nextLine();
 					precodoequipamento1 = Float.valueOf(precoconferir);
 				}
+				
+				EquipamentoDAO dao = new EquipamentoDAO();
+				dao.cadastro(equipamento1);
 				break;
 
 			case 2:
 				System.out.println("***lista de equipamentos***");
-				for (Equipamento equipamento : estoque) {
+				//for (Equipamento equipamento : estoque) {
 					System.out.println("Codigo: " + equipamento.getCodigo());
 					System.out.println("Nome: " + equipamento.getNome());
 					System.out.println("Numero de Serie: " + equipamento.getNumerodeserie());
