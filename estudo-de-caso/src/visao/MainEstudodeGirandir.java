@@ -89,15 +89,7 @@ public class MainEstudodeGirandir {
 				break;
 
 			case 2:
-				System.out.println("***lista de equipamentos***");
-				//for (Equipamento equipamento : estoque) {
-					System.out.println("Codigo: " + equipamento.getCodigo());
-					System.out.println("Nome: " + equipamento.getNome());
-					System.out.println("Numero de Serie: " + equipamento.getNumerodeserie());
-					System.out.println("Marca: " + equipamento.getMarca());
-					System.out.println("Preço: R$" + equipamento.getPreco());
-					System.out.println("Data de Fabricacao: " + equipamento.getDatafab());
-					System.out.println("");
+				for (Equipamento equip : dao.listar()) {
 				}
 				break;
 
@@ -105,7 +97,7 @@ public class MainEstudodeGirandir {
 				System.out.println("***Digite o código do equipamento para Exclusão***");
 				Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
 				EquipamentoEncontrado = false;
-				for (Equipamento equipamento : estoque) {
+				for (Equipamento equipamento : dao.listar()) {
 					if (CodigoParaDeletar.equals(equipamento.getCodigo())) {
 						estoque.remove(equipamento);
 						EquipamentoEncontrado = true;
@@ -124,7 +116,7 @@ public class MainEstudodeGirandir {
 				EquipamentoEncontrado = false;
 				System.out.println("Digite o codigo do equipamento que deseja alterar");
 				Integer CodigoParaAlterar = Integer.valueOf(leitura.nextLine());
-				for (Equipamento equipamento : estoque) {
+				for (Equipamento equipamento : dao.listar()) {
 					if (CodigoParaAlterar.equals(equipamento.getCodigo())) {
 						EquipamentoEncontrado = true;
 						System.out.println("Digite o que deseja alterar:");
@@ -216,7 +208,5 @@ public class MainEstudodeGirandir {
 				}
 				break;
 			}
-		} while (op != 0);
-		System.out.println("Fim do Programa");
-	}
-}
+		}while(op!=0);System.out.println("Fim do Programa");
+}}
