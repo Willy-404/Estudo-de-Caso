@@ -1,4 +1,4 @@
-package osmeninojatacopacote;
+package modelo;
 
 public class Equipamento {
 	private Integer codigo;

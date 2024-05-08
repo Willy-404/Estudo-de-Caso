@@ -1,7 +1,9 @@
-package osmeninojatacopacote;
+package visao;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import modelo.Equipamento;
 
 public class MainEstudodeGirandir {
 

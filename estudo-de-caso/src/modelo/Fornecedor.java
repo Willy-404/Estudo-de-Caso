@@ -1,4 +1,4 @@
-package osmeninojatacopacote;
+package modelo;
 
 public class Fornecedor extends Equipamento{
 	
