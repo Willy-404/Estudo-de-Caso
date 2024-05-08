@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import modelo.Equipamento;
 
 public class EquipamentoDAO {
+	//não sei se é pra ter
+	//Equipamento dao = new Equipamento();
 	
 	private ArrayList<Equipamento> estoque;
 	private int geradorCod;

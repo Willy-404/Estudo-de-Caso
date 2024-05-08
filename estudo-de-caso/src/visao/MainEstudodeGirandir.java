@@ -9,11 +9,16 @@ import modelo.Equipamento;
 public class MainEstudodeGirandir {
 
 	public static void main(String[] args) {
+		
+		EquipamentoDAO dao = new EquipamentoDAO();
+		
 		Scanner leitura = new Scanner(System.in);
 		int op;
 		boolean EquipamentoEncontrado;
 		do {
-
+			
+			//Equipamento dao = new Equipamento();
+			
 			System.out.println("");
 			System.out.println("*****SISTEMA DE CADASTRO DE EQUIPAMENTOS ELETRÔNICOS*****");
 			System.out.println("Escolha uma Opcao");
@@ -84,7 +89,7 @@ public class MainEstudodeGirandir {
 					precodoequipamento1 = Float.valueOf(precoconferir);
 				}
 				
-				EquipamentoDAO dao = new EquipamentoDAO();
+				//EquipamentoDAO dao = new EquipamentoDAO();
 				dao.cadastro(equipamento1);
 				break;
 
@@ -93,24 +98,24 @@ public class MainEstudodeGirandir {
 				}
 				break;
 
-			case 3:
-				System.out.println("***Digite o código do equipamento para Exclusão***");
-				Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
-				EquipamentoEncontrado = false;
-				for (Equipamento equipamento : dao.listar()) {
-					if (CodigoParaDeletar.equals(equipamento.getCodigo())) {
-						estoque.remove(equipamento);
-						EquipamentoEncontrado = true;
-						break;
-					}
-				}
-				if (EquipamentoEncontrado == true) {
-					System.out.println("Equipamento removido com sucesso!");
-				} else {
-					System.out.println("Equipamento não encontrado.");
-				}
-				System.out.println("");
-				break;
+			//case 3:
+				//System.out.println("***Digite o código do equipamento para Exclusão***");
+				//Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
+				//EquipamentoEncontrado = false;
+				//for (Equipamento equipamento : dao.listar()) {
+					//if (CodigoParaDeletar.equals(equipamento.getCodigo())) {
+						//estoque.remove(equipamento);
+						//EquipamentoEncontrado = true;
+						//break;
+					//}
+				//}
+				//if (EquipamentoEncontrado == true) {
+					//System.out.println("Equipamento removido com sucesso!");
+				//} else {
+				//	System.out.println("Equipamento não encontrado.");
+				//}
+				//System.out.println("");
+				//break;
 
 			case 4:
 				EquipamentoEncontrado = false;
@@ -193,7 +198,7 @@ public class MainEstudodeGirandir {
 							String DataSubstituir = leitura.nextLine();
 							equipamento.setDatafab(DataSubstituir);
 							equipamento.setDatafab(dd1 + "/" + mm1 + "/" + aa1);
-							estoque.add(equipamento);
+							//estoque.add(equipamento);
 							System.out.println("Data alterada com sucesso!");
 							po = 0;
 							break;
