@@ -5,17 +5,26 @@ import java.util.ArrayList;
 import modelo.Equipamento;
 
 public class EquipamentoDAO {
-	//não sei se é pra ter
-	//Equipamento dao = new Equipamento();
 	
-	private ArrayList<Equipamento> estoque;
-	private int geradorCod;
 	
 	//construtor "pseudo-metodo"
-	public EquipamentoDAO() {
+	private EquipamentoDAO() {
 		this.estoque = new ArrayList<>();
 		this.geradorCod = 1;
+	}	
+	
+	//Arraylist dentro do EquipamentoDAO
+	private ArrayList<Equipamento> estoque;
+	private int geradorCod;
+	private static EquipamentoDAO instancia;
+	
+	public static EquipamentoDAO getInstancia() {
+		if(instancia==null) {
+			instancia = new EquipamentoDAO();
+		}
+		return instancia;
 	}
+
 	//função do cadastro
 	public int cadastro(Equipamento equip) {
 	if (equip != null) {
@@ -35,7 +44,6 @@ public class EquipamentoDAO {
 	public ArrayList<Equipamento> listar(){
 		return this.estoque;
 	}
-	
 	
 	public ArrayList<Equipamento> getEstoque() {
 		return estoque;

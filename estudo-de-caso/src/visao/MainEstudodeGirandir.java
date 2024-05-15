@@ -10,14 +10,12 @@ public class MainEstudodeGirandir {
 
 	public static void main(String[] args) {
 		
-		EquipamentoDAO dao = new EquipamentoDAO();
+		EquipamentoDAO dao = EquipamentoDAO.getInstancia();
 		
 		Scanner leitura = new Scanner(System.in);
 		int op;
 		boolean EquipamentoEncontrado;
 		do {
-			
-			//Equipamento dao = new Equipamento();
 			
 			System.out.println("");
 			System.out.println("*****SISTEMA DE CADASTRO DE EQUIPAMENTOS ELETRÔNICOS*****");
@@ -88,13 +86,13 @@ public class MainEstudodeGirandir {
 					String precoconferir = leitura.nextLine();
 					precodoequipamento1 = Float.valueOf(precoconferir);
 				}
-				
-				//EquipamentoDAO dao = new EquipamentoDAO();
 				dao.cadastro(equipamento1);
 				break;
 
 			case 2:
 				for (Equipamento equip : dao.listar()) {
+					//listar
+					System.out.println("");
 				}
 				break;
 
