@@ -1,3 +1,4 @@
+
 package controle;
 
 import java.util.ArrayList;
@@ -52,4 +53,8 @@ public class EquipamentoDAO {
 		boolean verifica = estoque.remove(equipamento);
 		return verifica;
 	}
+	//metodo alterar
+	public void alterar(Equipamento equipamento) {
+	
+}
 }
