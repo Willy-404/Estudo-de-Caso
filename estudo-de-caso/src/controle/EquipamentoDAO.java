@@ -45,10 +45,11 @@ public class EquipamentoDAO {
 		return this.estoque;
 	}
 	
-	public ArrayList<Equipamento> getEstoque() {
-		return estoque;
-	}
-	public void setEstoque(ArrayList<Equipamento> estoque) {
-		this.estoque = estoque;
+	
+	
+	//metodo  remover()
+	public boolean remover(Equipamento equipamento) {
+		boolean verifica = estoque.remove(equipamento);
+		return verifica;
 	}
 }

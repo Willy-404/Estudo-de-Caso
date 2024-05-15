@@ -96,30 +96,30 @@ public class MainEstudodeGirandir {
 					System.out.println("Nome: " + equip.getNome());
 					System.out.println("Numero de Serie: " + equip.getNumerodeserie());
 					System.out.println("Marca: " + equip.getMarca());
-					System.out.println("Preço: R$" + equip.getPreco());
+					System.out.println("Preco: R$" + equip.getPreco());
 					System.out.println("Data de Fabricacao: " + equip.getDatafab());
 					System.out.println("");
 				}
 				break;
 
-			//case 3:
-				//System.out.println("***Digite o código do equipamento para Exclusão***");
-				//Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
-				//EquipamentoEncontrado = false;
-				//for (Equipamento equipamento : dao.listar()) {
-					//if (CodigoParaDeletar.equals(equipamento.getCodigo())) {
-						//estoque.remove(equipamento);
-						//EquipamentoEncontrado = true;
-						//break;
-					//}
-				//}
-				//if (EquipamentoEncontrado == true) {
-					//System.out.println("Equipamento removido com sucesso!");
-				//} else {
-				//	System.out.println("Equipamento não encontrado.");
-				//}
-				//System.out.println("");
-				//break;
+			case 3:
+				System.out.println("***Digite o código do equipamento para Exclusão***");
+				Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
+				EquipamentoEncontrado = false;
+				for (Equipamento equipamento : dao.listar()) {
+					if (CodigoParaDeletar.equals(equipamento.getCodigo())) {
+						dao.remover(equipamento);
+						EquipamentoEncontrado = true;
+						break;
+					}
+				}
+				if (EquipamentoEncontrado == true) {
+					System.out.println("Equipamento removido com sucesso!");
+				} else {
+					System.out.println("Equipamento não encontrado.");
+				}
+				System.out.println("");
+				break;
 
 			case 4:
 				EquipamentoEncontrado = false;
