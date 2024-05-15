@@ -92,6 +92,12 @@ public class MainEstudodeGirandir {
 			case 2:
 				for (Equipamento equip : dao.listar()) {
 					//listar
+					System.out.println("Codigo: " + equip.getCodigo());
+					System.out.println("Nome: " + equip.getNome());
+					System.out.println("Numero de Serie: " + equip.getNumerodeserie());
+					System.out.println("Marca: " + equip.getMarca());
+					System.out.println("Preço: R$" + equip.getPreco());
+					System.out.println("Data de Fabricacao: " + equip.getDatafab());
 					System.out.println("");
 				}
 				break;
