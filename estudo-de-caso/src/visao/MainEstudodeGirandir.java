@@ -103,7 +103,7 @@ public class MainEstudodeGirandir {
 				break;
 
 			case 3:
-				System.out.println("***Digite o código do equipamento para Exclusão***");
+				System.out.println("***Digite o codigo do equipamento para Exclusao***");
 				Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
 				EquipamentoEncontrado = false;
 				for (Equipamento equipamento : dao.listar()) {
