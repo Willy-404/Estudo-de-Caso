@@ -2,13 +2,16 @@
 package controle;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import modelo.Equipamento;
 
 public class EquipamentoDAO {
-	//DAO significa "Decentralized Autonomous Organization"
+	//DAO significa "Decentralized Autonomous Organization";
 	
-	//construtor "pseudo-metodo"
+	Scanner leitura = new Scanner(System.in);
+	
+	//construtor "pseudo-metodo";
 	private EquipamentoDAO() {
 		this.estoque = new ArrayList<>();
 		this.geradorCod = 1;
@@ -26,7 +29,7 @@ public class EquipamentoDAO {
 		return instancia;
 	}
 
-	//função do cadastro
+	//função do cadastro;
 	public int cadastro(Equipamento equip) {
 	if (equip != null) {
 		equip.setCodigo(geradorCod);
@@ -42,18 +45,29 @@ public class EquipamentoDAO {
 		this.geradorCod = geradorId;
 	}
 	
-	//função da listagem
+	//função da listagem;
 	public ArrayList<Equipamento> listar(){
 		return this.estoque;
 	}
 	
-	//metodo  remover()
+	//metodo  remover;
 	public boolean remover(Equipamento equipamento) {
 		boolean verifica = estoque.remove(equipamento);
 		return verifica;
 	}
-	//metodo alterar
-	public void alterar(Equipamento equipamento) {
-		
+	//metodo alterar valores String;
+	public String altString() {
+		String NomeParaSubstituir = leitura.nextLine();
+		return NomeParaSubstituir;
+	}
+	//metodo alterar numeros inteiros;
+	public int altInt() {
+		int numInt = Integer.valueOf(leitura.nextLine());
+		return numInt;
+	}
+	//metodo alterar numeros float;
+	public float altFloat() {
+		float numFloat = Float.valueOf(leitura.nextLine());
+		return numFloat;
 	}
 }

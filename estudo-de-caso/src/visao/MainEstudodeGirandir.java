@@ -1,8 +1,5 @@
 package visao;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import controle.EquipamentoDAO;
 import modelo.Equipamento;
 
@@ -11,8 +8,6 @@ public class MainEstudodeGirandir {
 	public static void main(String[] args) {
 		
 		EquipamentoDAO dao = EquipamentoDAO.getInstancia();
-		
-		Scanner leitura = new Scanner(System.in);
 		int op;
 		boolean EquipamentoEncontrado;
 		do {
@@ -26,7 +21,7 @@ public class MainEstudodeGirandir {
 			System.out.println("Digite 4 para Alterar valores");
 			System.out.println("Digite 0 para Finalizar o programa");
 			System.out.println("");
-			String opcao = leitura.nextLine();
+			String opcao = dao.altString();
 			op = Integer.valueOf(opcao);
 
 			switch (op) {
@@ -35,55 +30,55 @@ public class MainEstudodeGirandir {
 				Equipamento equipamento1 = new Equipamento();
 
 				System.out.println("Digite o numero de serie do produto: ");
-				String numseriedoequipamento = leitura.nextLine();
+				String numseriedoequipamento = dao.altString();
 				int numseriedoequipamento1 = Integer.valueOf(numseriedoequipamento);
 				equipamento1.setNumerodeserie(numseriedoequipamento1);
 				while (numseriedoequipamento1 < 0) {
 					System.out.println("Numero de serie invalido, digite de novo: ");
-					String numserieconferir = leitura.nextLine();
+					String numserieconferir = dao.altString();
 					numseriedoequipamento1 = Integer.valueOf(numserieconferir);
 					equipamento1.setNumerodeserie(numseriedoequipamento1);
 				}
 				System.out.println("Digite o nome do produto: ");
-				String nomedoequipamento = leitura.nextLine();
+				String nomedoequipamento = dao.altString();
 				equipamento1.setNome(nomedoequipamento);
 
 				System.out.println("Digite a marca: ");
-				String marcadoequipamento = leitura.nextLine();
+				String marcadoequipamento = dao.altString();
 				equipamento1.setMarca(marcadoequipamento);
 
 				System.out.println("Data de fabricacao do produto (dd/mm/aa): ");
 				System.out.println("Digite o Dia: ");
-				String dd = leitura.nextLine();
+				String dd = dao.altString();
 				while ((Integer.valueOf(dd) > 31) || (Integer.valueOf(dd)) < 1) {
 					System.out.println("Digite um dia Valido!");
-					String ddverif = leitura.nextLine();
+					String ddverif = dao.altString();
 					dd = ddverif;
 				}
 				System.out.println("Digite o Mes: ");
-				String mm = leitura.nextLine();
+				String mm = dao.altString();
 				while ((Integer.valueOf(mm) > 12) || (Integer.valueOf(mm)) < 1) {
 					System.out.println("Digite um Mes Valido!");
-					String mmverif = leitura.nextLine();
+					String mmverif = dao.altString();
 					mm = mmverif;
 				}
 				System.out.println("Digite o Ano: ");
-				String aa = leitura.nextLine();
+				String aa = dao.altString();
 				while ((Integer.valueOf(aa) > 2024) || (Integer.valueOf(aa)) < 1900) {
 					System.out.println("Digite um Ano Valido!");
-					String aaverif = leitura.nextLine();
+					String aaverif = dao.altString();
 					aa = aaverif;
 				}
 				equipamento1.setDatafab(dd + "/" + mm + "/" + aa);
 				
 
 				System.out.println("Digite o preco do produto: ");
-				String precodoequipamento = leitura.nextLine();
+				String precodoequipamento = dao.altString();
 				float precodoequipamento1 = Float.valueOf(precodoequipamento);
 				equipamento1.setPreco(precodoequipamento1);
 				while (precodoequipamento1 < 1) {
 					System.out.println("Preco invalido, digite um valor real: ");
-					String precoconferir = leitura.nextLine();
+					String precoconferir = dao.altString();
 					precodoequipamento1 = Float.valueOf(precoconferir);
 				}
 				dao.cadastro(equipamento1);
@@ -104,7 +99,7 @@ public class MainEstudodeGirandir {
 
 			case 3:
 				System.out.println("***Digite o codigo do equipamento para Exclusao***");
-				Integer CodigoParaDeletar = Integer.valueOf(leitura.nextLine());
+				Integer CodigoParaDeletar = dao.altInt();
 				EquipamentoEncontrado = false;
 				for (Equipamento equipamento : dao.listar()) {
 					if (CodigoParaDeletar.equals(equipamento.getCodigo())) {
@@ -124,7 +119,7 @@ public class MainEstudodeGirandir {
 			case 4:
 				EquipamentoEncontrado = false;
 				System.out.println("Digite o codigo do equipamento que deseja alterar");
-				Integer CodigoParaAlterar = Integer.valueOf(leitura.nextLine());
+				Integer CodigoParaAlterar = Integer.valueOf(dao.altString());
 				for (Equipamento equipamento : dao.listar()) {
 					if (CodigoParaAlterar.equals(equipamento.getCodigo())) {
 						EquipamentoEncontrado = true;
@@ -135,23 +130,23 @@ public class MainEstudodeGirandir {
 						System.out.println("4-Preco");
 						System.out.println("5-Data de Fabricacao");
 						System.out.println("0-Cancelar");
-						int po = Integer.valueOf(leitura.nextLine());
+						int po = Integer.valueOf(dao.altString());
 						switch (po) {
 						case 1:
-							System.out.println("Renomeie o Equipamento: ");
-							String NomeParaSubstituir = leitura.nextLine();
+							System.out.println("Digite um novo nome para o Equipamento");
+							String NomeParaSubstituir = dao.altString();
 							equipamento.setNome(NomeParaSubstituir);
 							System.out.println("Nome alterado com sucesso!");
 							po = 0;
 							break;
 						case 2:
-							System.out.println("Digite um novo Numero de Serie: ");
-							int NumSerieSubstituir = Integer.valueOf(leitura.nextLine());
+							System.out.println("Digite um novo numero de Serie:");
+							int NumSerieSubstituir = dao.altInt();
 							equipamento.setNumerodeserie(NumSerieSubstituir);
 							while (NumSerieSubstituir < 0) {
-								System.out.println("Numero de serie invalido, digite de novo: ");
-								String numserieconferir = leitura.nextLine();
-								NumSerieSubstituir = Integer.valueOf(numserieconferir);
+								System.out.println("Numero de serie invalido!");
+								System.out.println("Digite um novo numero de Serie");
+								NumSerieSubstituir = dao.altInt();
 								equipamento.setNumerodeserie(NumSerieSubstituir);
 							}
 							System.out.println("Numero de Serie alterado com sucesso!");
@@ -159,19 +154,18 @@ public class MainEstudodeGirandir {
 							break;
 						case 3:
 							System.out.println("Digite a nova marca do equipamento: ");
-							String MarcaParaSubstituir = leitura.nextLine();
+							String MarcaParaSubstituir = dao.altString();
 							equipamento.setMarca(MarcaParaSubstituir);
 							System.out.println("Marca alterada com sucesso!");
 							po = 0;
 							break;
 						case 4:
 							System.out.println("Digite um novo Preco para o Equipamento: ");
-							float PrecoSubstituir = Float.valueOf(leitura.nextLine());
+							float PrecoSubstituir = dao.altFloat();
 							equipamento.setPreco(PrecoSubstituir);
 							while (PrecoSubstituir < 1) {
 								System.out.println("Preco invalido, digite um valor real: ");
-								String precoconferir = leitura.nextLine();
-								PrecoSubstituir = Float.valueOf(precoconferir);
+								PrecoSubstituir = dao.altFloat();
 							}
 							System.out.println("Preco alterado com sucesso!");
 							po = 0;
@@ -179,30 +173,29 @@ public class MainEstudodeGirandir {
 						case 5:
 							System.out.println("Nova data de fabricacao do produto (dd/mm/aa): ");
 							System.out.println("Digite o Dia: ");
-							String dd1 = leitura.nextLine();
+							String dd1 = dao.altString();
 							while ((Integer.valueOf(dd1) > 31) || (Integer.valueOf(dd1)) < 1) {
 								System.out.println("Digite um dia Valido!");
-								String ddverif = leitura.nextLine();
+								String ddverif = dao.altString();
 								dd1 = ddverif;
 							}
 							System.out.println("Digite o Mes: ");
-							String mm1 = leitura.nextLine();
+							String mm1 = dao.altString();
 							while ((Integer.valueOf(mm1) > 12) || (Integer.valueOf(mm1)) < 1) {
 								System.out.println("Digite um Mes Valido!");
-								String mmverif = leitura.nextLine();
+								String mmverif = dao.altString();
 								mm1 = mmverif;
 							}
 							System.out.println("Digite o Ano: ");
-							String aa1 = leitura.nextLine();
+							String aa1 = dao.altString();
 							while ((Integer.valueOf(aa1) > 2024) || (Integer.valueOf(aa1)) < 1900) {
 								System.out.println("Digite um Ano Valido!");
-								String aaverif = leitura.nextLine();
+								String aaverif = dao.altString();
 								aa1 = aaverif;
 							}
-							String DataSubstituir = leitura.nextLine();
+							String DataSubstituir = dao.altString();
 							equipamento.setDatafab(DataSubstituir);
 							equipamento.setDatafab(dd1 + "/" + mm1 + "/" + aa1);
-							//estoque.add(equipamento);
 							System.out.println("Data alterada com sucesso!");
 							po = 0;
 							break;
