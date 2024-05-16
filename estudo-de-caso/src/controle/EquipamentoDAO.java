@@ -9,8 +9,6 @@ import modelo.Equipamento;
 public class EquipamentoDAO {
 	//DAO significa "Decentralized Autonomous Organization";
 	
-	Scanner leitura = new Scanner(System.in);
-	
 	//construtor "pseudo-metodo";
 	private EquipamentoDAO() {
 		this.estoque = new ArrayList<>();
@@ -54,20 +52,5 @@ public class EquipamentoDAO {
 	public boolean remover(Equipamento equipamento) {
 		boolean verifica = estoque.remove(equipamento);
 		return verifica;
-	}
-	//metodo alterar valores String;
-	public String altString() {
-		String NomeParaSubstituir = leitura.nextLine();
-		return NomeParaSubstituir;
-	}
-	//metodo alterar numeros inteiros;
-	public int altInt() {
-		int numInt = Integer.valueOf(leitura.nextLine());
-		return numInt;
-	}
-	//metodo alterar numeros float;
-	public float altFloat() {
-		float numFloat = Float.valueOf(leitura.nextLine());
-		return numFloat;
 	}
 }
