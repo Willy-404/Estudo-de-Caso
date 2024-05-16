@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import modelo.Equipamento;
 
 public class EquipamentoDAO {
-	
+	//DAO significa "Decentralized Autonomous Organization"
 	
 	//construtor "pseudo-metodo"
 	private EquipamentoDAO() {
@@ -41,12 +41,11 @@ public class EquipamentoDAO {
 	public void setGeradorId(int geradorId) {
 		this.geradorCod = geradorId;
 	}
+	
 	//função da listagem
 	public ArrayList<Equipamento> listar(){
 		return this.estoque;
 	}
-	
-	
 	
 	//metodo  remover()
 	public boolean remover(Equipamento equipamento) {
@@ -55,6 +54,6 @@ public class EquipamentoDAO {
 	}
 	//metodo alterar
 	public void alterar(Equipamento equipamento) {
-	
-}
+		
+	}
 }
